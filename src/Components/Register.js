@@ -5,6 +5,7 @@ import Email from "./Email";
 import Password from "./Password";
 import User from './User';
 import { useNavigate } from 'react-router';
+import ReCAPTCHA from "react-google-recaptcha";
 
 export default function Register() {
   const [fullName, setFullName] = useState("")
@@ -16,10 +17,11 @@ export default function Register() {
   const [password, setPassword] = useState("")
   const [retypePassword, setRetypePassword] = useState("")
   const [cutomSebelum, setCutomSebelum] = useState("")
+  const [isVerified, setIsVerified] = useState(false)
   const navigate = useNavigate()
 
   useEffect(() => {
-    if(fullName !== "" && companyName !== "" && email !== "" && serviceGroup !== "" && serviceType !== "" && channels.length !== 0 && password !== "" && retypePassword === password) {
+    if(fullName !== "" && companyName !== "" && email !== "" && serviceGroup !== "" && serviceType !== "" && channels.length !== 0 && password !== "" && retypePassword === password && isVerified) {
       document.querySelector("input[type='submit']").disabled = false
       document.querySelector("input[type='submit']").style.backgroundColor = "#041b37"
     }else{
@@ -69,6 +71,10 @@ export default function Register() {
     if(x.querySelectorAll("path")[1]){
       x.querySelectorAll("path")[1].style.fill = "lightblue"
     }
+  }
+
+  const handleCaptcha = (e) => {
+    setIsVerified(true)
   }
 
   const handleSubmit = (e) => {
@@ -160,9 +166,13 @@ export default function Register() {
               </label>
               <input type="password" name="retypePassword" placeholder="Retype Password" onChange={(e) => setRetypePassword(e.target.value)} onFocus={handleFocus} onBlur={handleBlur}/>
             </div>
+            <ReCAPTCHA
+              sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"
+              onChange={handleCaptcha}
+            />
             <input className="submitAuth" type="submit" value="Register" onClick={handleSubmit}/>
-            <a href='/register' style={{fontSize: "12px", marginTop: '5px'}}>Registrasi</a>
           </form>
+            <a href='/login' style={{fontSize: "12px", marginTop: '5px'}}>Login</a>
         </div>
       </div>
       <style jsx>{`
