@@ -1,12 +1,14 @@
 import React, {useEffect, useState} from 'react'
-import { useLocation } from 'react-router'
+import { useNavigate, useLocation } from 'react-router'
 
 export default function Home() {
   const [email, setEmail] = useState("")
+  const navigate = useNavigate()
   const location = useLocation()
 
   useEffect( () => {
-    if(location.state.email){
+    console.log(location.state == null);
+    if(location.state !== null){
       setEmail(location.state.email)
     }
   }, [])
@@ -15,7 +17,11 @@ export default function Home() {
     <>
       <div>
         {email === "" ? 
-          <h1>Silakan Login</h1> : 
+          <>
+            <h1>Silakan Login</h1><br/>
+            <a href='/login'>Login</a>  
+          </>
+          :
           <>
             <h1>Selamat Datang</h1><br/><p>{email}</p>
           </>

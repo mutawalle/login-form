@@ -71,6 +71,7 @@ export default function Login() {
                         <input type="password" name="password" placeholder="Password" onChange={ e => setPassword(e.target.value)} onFocus={handleFocus} onBlur={handleBlur}/>
                      </div>
                      <input className="submitAuth" type="submit" value="Login" onClick={handleSubmit}/>
+                     <a href='/register' style={{fontSize: "12px", marginTop: '5px'}}>Registrasi</a>
                  </form>
             </div>
         </div>

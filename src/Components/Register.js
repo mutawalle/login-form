@@ -160,6 +160,7 @@ export default function Register() {
               <input type="password" name="retypePassword" placeholder="Retype Password" onChange={(e) => setRetypePassword(e.target.value)} onFocus={handleFocus} onBlur={handleBlur}/>
             </div>
             <input className="submitAuth" type="submit" value="Register" onClick={handleSubmit}/>
+            <a href='/register' style={{fontSize: "12px", marginTop: '5px'}}>Registrasi</a>
           </form>
         </div>
       </div>
