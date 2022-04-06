@@ -55,7 +55,8 @@ export default function Login() {
             </div>
             <div className='bagianKananAuth'>
                  <div className='logoAuth'>
-                    <img src={require('../Images/user.jpg')}/>
+                    <img src={require('../Images/user.jpg')}/><br/>
+                    <a href='https://www.freepik.com/vectors/male-face' style={{fontSize: '12px'}}>Male face vector created by studiogstock - www.freepik.com</a>
                  </div>
                  <h1>Welcome</h1>
                  <form className='formAuth'>
