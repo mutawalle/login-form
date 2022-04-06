@@ -51,6 +51,7 @@ export default function Login() {
         <div className='containerAuth'>
             <div className='bagianKiriAuth'>
                 <img src={require('../Images/vektor.jpg')}/>
+                <a href='https://www.freepik.com/vectors/social-media-network' style={{fontSize: '12px'}}>Social media network vector created by storyset - www.freepik.com</a>
             </div>
             <div className='bagianKananAuth'>
                  <div className='logoAuth'>
